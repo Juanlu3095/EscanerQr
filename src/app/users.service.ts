@@ -15,11 +15,9 @@ export class UsersService {
 
   loginusuario(email:any, password: any) {
     return this.http.post<any>(`${this.baseurl}/login.php`, {email, password})
-    .pipe(map(users => { //Este users es el de la clase users
-      //console.log(users.email);
+    .pipe(map(users => {
       if(users.mensaje == 'Usuario correcto'){
       this.setToken(users.email);
-      //this.getLoggedInName.emit(true);
       return users;
       }else{
         alert('Usuario incorrecto')
