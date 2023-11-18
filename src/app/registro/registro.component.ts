@@ -25,11 +25,9 @@ export class RegistroComponent implements OnInit{
     }
 
   enviar(registroform:any){
-    console.log(registroform);
       this.userService.registrousuario(registroform.value.email, registroform.value.password)
       .pipe(first())
       .subscribe(response => {this.registroform.patchValue(response);
-        console.log(response)
         if(response.mensaje == 'Registro completado'){
           alert('Registro completado');
           this.router.navigate(['/login']);
