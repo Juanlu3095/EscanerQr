@@ -1,0 +1,37 @@
+
+<div>
+
+    <h1 class="d-flex justify-content-center m-3">Escáner QR</h1>
+  
+    <!-- For camera -->
+  <ngx-scanner-qrcode #action="scanner" [isBeep]="false" [config]="config" (event)="onEvent($event, action)"></ngx-scanner-qrcode>
+  
+  <!-- data  -->
+  <p class="m-4" *ngIf="this.data">Nuevo asistente: <br>{{ e | json }}</p><!-- value -->
+  
+  <!-- Loading -->
+  <p class="d-flex justify-content-center" *ngIf="action.isLoading">⌛ Cargando...</p>
+  
+    <div class="d-flex justify-content-center">
+      <!-- Start -->
+      <button class="btn btn-primary me-1" (click)="action.isStart ? action.stop() : action.start()">{{action.isStart ? 'Stop' : 'Start'}}</button>
+  
+      <!-- Reset -->
+      <button class="btn btn-danger ms-1" (click)="resetdata()">Reset</button>
+  
+    </div>
+  
+    <div class="mt-4" *ngIf="!this.data">
+      <h4 class="d-flex justify-content-center">Instrucciones de uso</h4>
+      <p class="m-3">
+        Este escáner permite al usuario registrar los datos guardados en un QR. Presione <b>'Start'</b> para empezar. Una vez el escáner reconozca
+        el código QR, se mostrarán en pantalla los datos del registro. En ese momento no se podrán registar más hasta que pulse en <b>'Reset'</b>.
+        Una vez presionado dicho botón, podrá volver a escanear otro código QR. Para detener el escáner, presione <b>'Stop'</b>.
+      </p>
+    </div>
+  
+  </div>
+  
+  <div class="footer d-flex justify-content-center m-3">
+    <a href="mailto:jcooldevelopment@gmail.com">Desarrollado por Jcooldevelopment</a>
+  </div>

@@ -1,0 +1,12 @@
+<div class="registro">
+    <form class="custom-form" [formGroup]="registroform" (submit)="enviar(registroform)">
+      <h1>Registro</h1>
+
+      <input type="email" formControlName="email" name="email" placeholder="Email" />
+      
+      <input type="password" formControlName="password" name="password" placeholder="Password" />
+
+      <button type="submit">Enviar</button>
+
+    </form>
+  </div>

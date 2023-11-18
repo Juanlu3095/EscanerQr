@@ -1,0 +1,12 @@
+<div class="login">
+    <form class="custom-form" [formGroup]="loginform" (submit)="enviar(loginform)">
+      <h1>Login</h1>
+
+      <input type="email" formControlName="email" name="email" placeholder="Email" />
+      
+      <input type="password" formControlName="password" name="password" placeholder="Password" />
+
+      <button type="submit">Log in</button>
+
+    </form>
+  </div>
