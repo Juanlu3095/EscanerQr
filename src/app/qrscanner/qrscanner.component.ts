@@ -38,8 +38,6 @@ export class QrscannerComponent {
     /*Una vez se haya hecho el escáner la variable data controla si se puede enviar o no a la BD.*/
     /*Si data = false envía los datos al back-end*/
     if(!this.data){
-      //this.e = e;
-      console.log(e);
       this.e = e;
       this.addregistro();
       this.data = true;
@@ -54,7 +52,6 @@ export class QrscannerComponent {
   /*Con esta función mandamos los datos a la BD*/
   addregistro() {
     this.qrservice.addQr(this.e).subscribe(response=>{this.e = response;
-    console.log(response)
   });
   }
 
