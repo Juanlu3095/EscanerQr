@@ -25,13 +25,11 @@ export class LoginComponent implements OnInit{
         password: ['', Validators.required]
       });
     }
-    //MIN 6:50 DEL VÍDEO Part-3. Angular 12 Register Login Part 3 using Auth | Angular 12 Tutorial 2022
+  
     enviar(loginform:any){
-      console.log(loginform);
       this.userService.loginusuario(loginform.value.email, loginform.value.password)
       .pipe(first())
       .subscribe(response => {this.loginform.patchValue(response);
-        console.log(response);
         if(localStorage.getItem('Usuario')){
           this.router.navigate(['']);
         }
